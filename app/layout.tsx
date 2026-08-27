@@ -5,11 +5,19 @@ import { GeistSans } from "geist/font/sans";
 import { getCart } from "lib/shopify";
 import { baseUrl } from "lib/utils";
 import { Metadata } from "next";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import { Toaster } from "sonner";
 import "./globals.css";
 
 const { SITE_NAME } = process.env;
+
+async function CartProviderWrapper({ children }: { children: ReactNode }) {
+  const cart = await getCart();
+
+  return (
+    <CartProvider cartPromise={Promise.resolve(cart)}>{children}</CartProvider>
+  );
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -28,20 +36,19 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  // Don't await the fetch, pass the Promise to the context provider
-  const cart = getCart();
-
   return (
     <html lang="en" className={GeistSans.variable}>
       <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
-        <CartProvider cartPromise={cart}>
-          <Navbar />
-          <main>
-            {children}
-            <Toaster closeButton />
-            <WelcomeToast />
-          </main>
-        </CartProvider>
+        <Suspense fallback={null}>
+          <CartProviderWrapper>
+            <Navbar />
+            <main>
+              {children}
+              <Toaster closeButton />
+              <WelcomeToast />
+            </main>
+          </CartProviderWrapper>
+        </Suspense>
       </body>
     </html>
   );
