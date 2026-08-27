@@ -11,7 +11,12 @@ export async function Carousel() {
   if (!products?.length) return null;
 
   // Purposefully duplicating products to make the carousel loop and not run out of products on wide screens.
-  const carouselProducts = [...products, ...products, ...products];
+  const carouselProducts =
+    products.length > 1
+      ? products.length > 2
+        ? [...products, ...products, ...products]
+        : [...products, ...products]
+      : products;
 
   return (
     <div className="w-full overflow-x-auto pb-6 pt-1">
