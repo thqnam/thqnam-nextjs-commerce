@@ -44,12 +44,12 @@ export default async function Footer() {
         <div className="md:ml-auto">
           <a
             className="flex h-8 w-max flex-none items-center justify-center rounded-md border border-neutral-200 bg-white text-xs text-black dark:border-neutral-700 dark:bg-black dark:text-white"
-            aria-label="Deploy on Vercel"
-            href="https://vercel.com/templates/next.js/nextjs-commerce"
+            aria-label="All about me here"
+            href="https://thqnam-myself.vercel.app/"
           >
             <span className="px-3">▲</span>
             <hr className="h-full border-r border-neutral-200 dark:border-neutral-700" />
-            <span className="px-3">Deploy</span>
+            <span className="px-3">All about me here</span>
           </a>
         </div>
       </div>
@@ -64,11 +64,14 @@ export default async function Footer() {
           </p>
           <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
           <p>
-            <a href="https://github.com/vercel/commerce">View the source</a>
+            <a href="https://qned.vercel.app/">An other my site</a>
           </p>
           <p className="md:ml-auto">
-            <a href="https://vercel.com" className="text-black dark:text-white">
-              Created by ▲ Vercel
+            <a
+              href="https://thqnam-myself.vercel.app/"
+              className="text-black dark:text-white"
+            >
+              Created by ▲ Thiều Huỳnh Quang Nam
             </a>
           </p>
         </div>

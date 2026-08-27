@@ -16,14 +16,14 @@ export function WelcomeToast() {
         },
         description: (
           <>
-            This is a high-performance, SSR storefront powered by Shopify,
-            Next.js, and Vercel.{" "}
+            Hi, i'm Thiều Huỳnh Quang Nam of THQNAM Enterprise, i make this site
+            by Shopify, Next.js, and Vercel.{" "}
             <a
-              href="https://vercel.com/templates/next.js/nextjs-commerce"
+              href="https://thqnam-myself.vercel.app/"
               className="text-blue-600 hover:underline"
               target="_blank"
             >
-              Deploy your own
+              All about me here
             </a>
             .
           </>
